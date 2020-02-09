@@ -1,0 +1,37 @@
+---
+# https://github.com/clong/DetectionLab/blob/master/Vagrant/scripts/MakeWindows10GreatAgain.ps1
+
+- name: Merge in registry file
+  win_regmerge:
+    path: "{{ detectionlab_gitroot }}\\vagrant\\scripts\\MakeWindows10GreatAgain.reg"
+
+- name: Uninstall Onedrive
+  win_command: c:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
+  args:
+    remove: c:\Windows\SysWOW64\OneDriveSetup.exe
+
+- name: Disabling automatic screen turnoff in order to prevent screen locking...
+  win_command: "{{ item }}"
+  with_items:
+    - powercfg -change -monitor-timeout-ac 0
+    - powercfg -change -standby-timeout-ac 0
+    - powercfg -change -hibernate-timeout-ac 0
+
+- name: Download ShutUp10
+  win_get_url:
+    url: https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe
+    dest: C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe
+    follow_redirects: all
+  register: mimidl
+  until: mimidl is success
+
+- name: Install ShutUp10
+  win_package:
+          path: C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe
+    state: present
+    arguments: "{{ detectionlab_gitroot }}\\vagrant\\resources\\windows\\shutup10.cfg /quiet /force"
+
+- name: Remove the Edge shortcut from the Desktop
+  win_file:
+    path: c:\Users\vagrant\Desktop\Microsoft Edge.lnk
+    state: absent

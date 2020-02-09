@@ -1,0 +1,12 @@
+---
+
+win10_system_updates: false
+win10_menu: true
+win10_defender_removed: false
+win10_detectionlab_stats: false
+# no second interface option in appveyor
+win10_int_ip_address: "{{ ansible_ip_addresses[0] }}"
+
+_win10_chocolatey_ignore_errors: true
+
+detectionlab_online: false
