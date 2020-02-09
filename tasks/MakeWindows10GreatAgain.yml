@@ -31,11 +31,21 @@
   register: mimidl
   until: mimidl is success
 
-- name: Install ShutUp10
-  win_package:
-    path: C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe
-    state: present
-    arguments: "{{ detectionlab_gitroot }}\\vagrant\\resources\\windows\\shutup10.cfg /quiet /force"
+- name: Check if ShutUp10 has been executed
+  win_stat:
+    path: 'c:\Program Files\.shutup10_cleaning_done'
+  register: shutup10
+
+- block:
+    - name: Run ShutUp10
+        win_command: >
+          C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe "{{ detectionlab_gitroot }}\\vagrant\\resources\\windows\\shutup10.cfg /quiet /force"
+
+    - name: Add marker for ShutUp10
+      win_file:
+        path: 'c:\Program Files\.shutup10_cleaning_done'
+        state: touch
+  when: not shutup10.stat.exists
 
 - name: Remove the Edge shortcut from the Desktop
   win_file:
