@@ -79,6 +79,7 @@ install:
 - cmd: "%CYG_BASH% -lc 'mkdir -p /etc/ansible/roles'"
 - cmd: "%CYG_BASH% -lc 'cp /cygdrive/c/projects/ansible-win10/test/appveyor/ansible.cfg /etc/ansible'"
 - cmd: "%CYG_BASH% -lc 'cp -R /cygdrive/c/projects/ansible-win10 /etc/ansible/roles/juju4.win10'"
+- cmd: "%CYG_BASH% -lc 'ansible-galaxy install -p /etc/ansible/roles -r /etc/ansible/roles/juju4.win10/requirements.yml'"
 - ps: |
     . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
 
