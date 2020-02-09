@@ -1,5 +1,9 @@
 [![Build Status - Master](https://travis-ci.org/juju4/ansible-win10.svg?branch=master)](https://travis-ci.org/juju4/ansible-win10)
 [![Build Status - Devel](https://travis-ci.org/juju4/ansible-win10.svg?branch=devel)](https://travis-ci.org/juju4/ansible-win10/branches)
+
+[![Appveyor - Master](https://ci.appveyor.com/api/projects/status/xx0gblauu2ipcatg?svg=true)](https://ci.appveyor.com/project/juju4/ansible-win10)
+![Appveyor - Devel](https://ci.appveyor.com/api/projects/status/xx0gblauu2ipcatg/branch/devel?svg=true)
+
 # DetectionLab Windows 10 ansible role
 
 Setup a Windows 10 system for [DetectionLab](https://github.com/clong/DetectionLab)
