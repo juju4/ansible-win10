@@ -38,8 +38,8 @@
 
 - block:
     - name: Run ShutUp10
-        win_command: >
-          C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe "{{ detectionlab_gitroot }}\\vagrant\\resources\\windows\\shutup10.cfg /quiet /force"
+      win_command: >
+        C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe "{{ detectionlab_gitroot }}\\vagrant\\resources\\windows\\shutup10.cfg /quiet /force"
 
     - name: Add marker for ShutUp10
       win_file:
