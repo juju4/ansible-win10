@@ -3,7 +3,7 @@ dist: xenial
 language: python
 
 before_install:
- - ln -s ansible-win10 ../juju4.dc
+ - ln -s ansible-win10 ../juju4.win10
 install:
   - sudo apt-get install libxml2-utils
   - pip install ansible ansible-lint

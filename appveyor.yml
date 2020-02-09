@@ -78,7 +78,7 @@ install:
 - cmd: "%CYG_BASH% -lc 'ansible -i /cygdrive/c/projects/ansible-win10/test/appveyor/inventory -m win_ping -vvv localhost'"
 - cmd: "%CYG_BASH% -lc 'mkdir -p /etc/ansible/roles'"
 - cmd: "%CYG_BASH% -lc 'cp /cygdrive/c/projects/ansible-win10/test/appveyor/ansible.cfg /etc/ansible'"
-- cmd: "%CYG_BASH% -lc 'cp -R /cygdrive/c/projects/ansible-win10 /etc/ansible/roles/juju4.dc'"
+- cmd: "%CYG_BASH% -lc 'cp -R /cygdrive/c/projects/ansible-win10 /etc/ansible/roles/juju4.win10'"
 - ps: |
     . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
 

@@ -60,8 +60,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           "myrole" => ["vwin10" ],
        }
     end
-    config.vm.provision "shell", inline: ". { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec", privileged: true
-    config.vm.provision "shell", inline: "c:\\opscode\\inspec\\bin\\inspec.bat exec https://github.com/juju4/inspec-detectionlab-dc | tee c:\\inspec.log", privileged: true, env: { 'CHEF_LICENSE': 'accept-no-persist'}
 
     config.vm.network :private_network, ip: "192.168.38.104", gateway: "192.168.38.1"
 

@@ -1,5 +1,5 @@
 ---
-# defaults file for juju4.dc
+# defaults file for juju4.win10
 
 # notify DetectionLab for usage statistics
 detectionlab_stats: true
