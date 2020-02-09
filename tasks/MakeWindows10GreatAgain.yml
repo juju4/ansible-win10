@@ -5,10 +5,16 @@
   win_regmerge:
     path: "{{ detectionlab_gitroot }}\\vagrant\\scripts\\MakeWindows10GreatAgain.reg"
 
+- name: Check if Onedrive file
+  win_stat:
+    path: c:\Windows\SysWOW64\OneDriveSetup.exe
+  register: onedrive
+
 - name: Uninstall Onedrive
   win_command: c:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
   args:
     remove: c:\Windows\SysWOW64\OneDriveSetup.exe
+  when: onedrive.stat.exists
 
 - name: Disabling automatic screen turnoff in order to prevent screen locking...
   win_command: "{{ item }}"
