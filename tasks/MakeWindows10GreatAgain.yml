@@ -27,7 +27,7 @@
 
 - name: Install ShutUp10
   win_package:
-          path: C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe
+    path: C:\Users\vagrant\AppData\Local\Temp\OOSU10.exe
     state: present
     arguments: "{{ detectionlab_gitroot }}\\vagrant\\resources\\windows\\shutup10.cfg /quiet /force"
 
