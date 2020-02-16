@@ -51,7 +51,7 @@
       until: job_result.finished or shutup_run.finished
       retries: 5
       delay: 60
-      when: shutup_run is changed
+      when: shutup_run is changed or shutup_run is started
       ignore_errors: true
 
     - name: Add marker for ShutUp10
