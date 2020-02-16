@@ -42,6 +42,7 @@
       - wireshark
       - winpcap
     state: present
+    ignore_checksums: "{{ win10_choco_ignore_checksums | default(false) }}"
   ignore_errors: "{{ _win10_chocolatey_ignore_errors | default(false) }}"
 
 - name: Install classic-shell with chocolatey
@@ -51,6 +52,7 @@
       - classic-shell
     state: present
     install_args: "ADDLOCAL=ClassicStartMenu"
+    ignore_checksums: "{{ win10_choco_ignore_checksums | default(false) }}"
 
 - name: Check if DetectionLab Menu Install has been done
   win_stat:
