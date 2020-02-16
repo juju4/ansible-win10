@@ -8,6 +8,7 @@
     win_audit_files: false
     win_audit_registry: false
     win_powershellmodules: []
+    win10_defender_removed: false
     detectionlab_stats: false
   roles:
     - juju4.win10
