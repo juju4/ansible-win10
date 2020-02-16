@@ -15,6 +15,12 @@
   args:
     remove: c:\Windows\SysWOW64\OneDriveSetup.exe
   when: onedrive.stat.exists
+  ignore_errors: true
+
+- name: Remove Onedrive setup file
+  win_file:
+    path: c:\Windows\SysWOW64\OneDriveSetup.exe
+    state: absent
 
 - name: Disabling automatic screen turnoff in order to prevent screen locking...
   win_command: "{{ item }}"
