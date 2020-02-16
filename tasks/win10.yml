@@ -7,11 +7,15 @@
     start_mode: auto
   with_items:
     - wuauserv
+  tags:
+    - winupdates
 
 - name: Install security updates
   win_updates:
     category_names: SecurityUpdates
   when: win10_system_updates|bool
+  tags:
+    - winupdates
 
 - name: Install git
   win_chocolatey:

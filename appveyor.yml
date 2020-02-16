@@ -87,7 +87,7 @@ build: off
 test_script:
 - cmd: "%CYG_BASH% -lc 'ansible-playbook /cygdrive/c/projects/ansible-win10/test/integration/$SUITE/default.yml --syntax-check'"
 # No DC
-#- cmd: "%CYG_BASH% -lc 'ansible-playbook -i /cygdrive/c/projects/ansible-win10/test/appveyor/inventory /cygdrive/c/projects/ansible-win10/test/integration/$SUITE/default.yml -vvv $ANSIBLE_EXTRA_VARS --tags=predomain'"
+#- cmd: "%CYG_BASH% -lc 'ansible-playbook -i /cygdrive/c/projects/ansible-win10/test/appveyor/inventory /cygdrive/c/projects/ansible-win10/test/integration/$SUITE/default.yml -vvv $ANSIBLE_EXTRA_VARS --tags=predomain,winupdates'"
 #- ps: Restart-Computer -Force
 #- ps: Start-Sleep -s 10
 - cmd: "%CYG_BASH% -lc 'ansible-playbook -i /cygdrive/c/projects/ansible-win10/test/appveyor/inventory /cygdrive/c/projects/ansible-win10/test/integration/$SUITE/default.yml -vvv $ANSIBLE_EXTRA_VARS --skip-tags=predomain'"

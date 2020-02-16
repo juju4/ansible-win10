@@ -40,7 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
        ansible.compatibility_mode = "2.0"
        #ansible.extra_vars = { ansible_winrm_server_cert_validation: 'ignore', ansible_port: 5986 }
        ansible.extra_vars = { ansible_winrm_server_cert_validation: 'ignore' }
-       ansible.raw_arguments = ["--tags=predomain"]
+       ansible.raw_arguments = ["--tags=predomain,winupdates"]
        ansible.groups = {
           "myrole" => ["vwin10" ],
        }
