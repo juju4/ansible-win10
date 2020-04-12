@@ -19,8 +19,8 @@
     datatype: "{{ item.t }}"
   with_items:
     - { v: AutoAdminLogon, d: '1', t: dword }
-    - { v: DefaultUserName, d: 'vagrant', t: string }
-    - { v: DefaultPassword, d: 'vagrant', t: string }
+    - { v: DefaultUserName, d: "{{ win_join_domain_user | default('windomain.local\vagrant') }}", t: string }
+    - { v: DefaultPassword, d: "{{ win_join_domain_pass | default('vagrant') }}", t: string }
   tags:
     - predomain
 
