@@ -103,6 +103,7 @@
   when: detectionlab_online
 - name: Rearm server license manager
   win_command: "cscript c:\\windows\\system32\\slmgr.vbs -rearm"
+  ignore_errors: true
   tags:
     - predomain
   when: detectionlab_online
@@ -111,6 +112,11 @@
 - meta: flush_handlers
 
 - include: palantir.yml
+
+- name: Ensure RSAT is present
+  win_feature:
+    name: RSAT
+    state: present
 
 - name: Ensure Win Defender is not present
   win_feature:
