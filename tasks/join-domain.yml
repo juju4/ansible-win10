@@ -10,6 +10,9 @@
     log_path: C:\dns_log.txt
   tags:
     - predomain
+  # FIXME! sometimes "A general error occured that is not covered by a more specific error code"...
+  #     but dns still changed
+  ignore_errors: true
 
 - name: Set AutoLogon
   win_regedit:
