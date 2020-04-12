@@ -9,6 +9,7 @@ win10_system_updates: true
 win10_menu: true
 win10_defender_removed: true
 win10_redteam_powersploit_dl: false
+detectionlab_redteam_powershell_yaml_install: false
 win10_testing: false
 
 # set to true only if have all systems online or built together.
